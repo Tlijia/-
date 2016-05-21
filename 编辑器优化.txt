@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<time.h>
+int main()
+{
+	double t1,t2,t;
+	int i,j,k,m,n,p,q,a[100][100],b[100][100],c[100][100];
+	t1=clock();
+	scanf("%d%d",&m,&n);
+	for(i=1;i<=m;i++)
+	{
+		for(j=1;j<=n;j++)
+		{
+			scanf("%d",&a[i][j]);
+		}
+	}
+	scanf("%d%d",&p,&q);
+	for(i=1;i<=p;i++)
+	{
+		for(j=1;j<=q;j++)
+		{
+			scanf("%d",&b[i][j]);
+		}
+	}
+	for(i=1;i<=m;i++)
+	{
+		for(j=1;j<=q;j++)
+		{
+			c[i][j]=0;
+			for(k=1;k<=n;k++)
+			{
+				c[i][j]+=a[i][k]*b[k][j];
+			}
+		}
+	}
+	for(i=1;i<=m;i++)
+	{
+		for(j=1;j<=q;j++)
+		{
+				printf("%d",c[i][j]);
+				if(j!=q)
+				{
+					printf(" ");
+				}
+		}
+		if(i<m)
+		{
+			printf("\n");
+		}
+	}
+	t2=clock();
+	t=t2-t1;
+	printf("t=%lf",t);
+	return 0;
+}
